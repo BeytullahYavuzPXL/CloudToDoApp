@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - APIURL=http://pe-2-backend-1733835901.us-east-1.elb.amazonaws.com
+    ports:
+      - 80:80

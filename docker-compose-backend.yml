@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - 80:80
+    environment:
+      - PORT=80
+      - DBURL=pe-2-mysql.ckx0rycvzrct.us-east-1.rds.amazonaws.com
+      - DBUSER=admin
+      - DBPASSWORD=sUO4nscSM45twya1sWUT
+      - DBDATABASE=todo
+      - DBPORT=3306
