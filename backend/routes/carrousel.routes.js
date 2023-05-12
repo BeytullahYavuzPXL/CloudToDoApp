@@ -16,7 +16,7 @@ carrouselRouter.get('', (req, res) => {
         } else {
             const carrouselFolder = 'carrousel/';
             const carrouselData = data.Contents
-                .filter((object) => object.Key.startsWith(carrouselFolder))
+                .filter((object) => object.Key !== carrouselFolder)
                 .map((object) => {
                     const objectAddress = `https://${bucketParams.Bucket}.s3.amazonaws.com/${object.Key}`;
                     return objectAddress;
