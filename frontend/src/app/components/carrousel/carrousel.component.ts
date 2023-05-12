@@ -13,12 +13,14 @@ export class CarrouselComponent implements OnInit {
   counter!: any;
   constructor(private todoService: TodoService) { }
 
-  ngOnInit(): void {
-    this.todoService.getCarrouselItems().subscribe(
-      (data: any) => {
-        this.images = data;
-      }
-    );
+  async ngOnInit(): Promise<void> {
+    // this.todoService.getCarrouselItems().subscribe(
+    //   (data: any) => {
+    //     this.images = data;
+    //   }
+    // );
+
+    this.images =await this.todoService.getCarrouselItems();
 
     this.counter = setInterval( () => {
       this.activeItem = (this.activeItem >= this.images.length-1) ? 0 : this.activeItem+1;
