@@ -18,7 +18,9 @@ carrouselRouter.get('', (req, res) => {
             const carrouselData = data.Contents
                 .filter((object) => object.Size > 0)
                 .map((object) => {
-                    const objectAddress = `https://${bucketParams.Bucket}.s3.amazonaws.com/${object.Key}`;
+                    const objectAddress = {
+                        "url": `https://${bucketParams.Bucket}.s3.amazonaws.com/${object.Key}`
+                    }
                     return objectAddress;
                 });
             res.json(carrouselData);
