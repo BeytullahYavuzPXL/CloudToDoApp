@@ -6,6 +6,7 @@ const carrouselRouter = express.Router();
 carrouselRouter.get('', (req, res) => {
     const bucketParams = {
         Bucket: 'pe-2-static-assets',
+        Prefix: 'carrousel'
     };
 
     s3.listObjects(bucketParams, (err, data) => {
