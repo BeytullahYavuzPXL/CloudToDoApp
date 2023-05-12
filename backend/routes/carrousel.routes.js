@@ -13,7 +13,10 @@ carrouselRouter.get('', (req, res) => {
             console.log(err);
             res.status(500).json({ error: 'Failed to retrieve carrousel data' });
         } else {
-            const carrouselData = data.Contents.map((object) => object.Key);
+            const carrouselData = data.Contents.map((object) => {
+                const objectAddress = `https://${bucketParams.Bucket}.s3.amazonaws.com/${object.Key}`;
+                return objectAddress;
+            });
             res.json(carrouselData);
         }
     });
