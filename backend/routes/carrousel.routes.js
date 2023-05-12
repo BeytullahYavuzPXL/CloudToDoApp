@@ -6,6 +6,7 @@ const carrouselRouter = express.Router();
 carrouselRouter.get('', (req, res) => {
     const bucketParams = {
         Bucket: 'pe-2-static-assets',
+        Delimiter: '/',
         Prefix: 'carrousel/'
     };
 
@@ -18,7 +19,7 @@ carrouselRouter.get('', (req, res) => {
                 const objectAddress = `https://${bucketParams.Bucket}.s3.amazonaws.com/${object.Key}`;
                 return objectAddress;
             });
-            res.json(carrouselData.Contents);
+            res.json(carrouselData);
         }
     });
 });
